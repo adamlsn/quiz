@@ -3,11 +3,10 @@ const questionEl = document.getElementById("questions-container");
 const startup = document.getElementById("startup");
 const questionContainer = document.getElementById("question-container");
 const answerBtn = document.getElementById("answerBtn")
+const endScreen = document.getElementById("end-screen")
+const answerEl = document.getElementById("answer")
 
 let score = 0;
-
-let t = 90;
-let counter = 0;
 let answerPosition;
 let questionPosition = 0;
 
@@ -66,7 +65,24 @@ function init(){
     startup.classList.add("hide");
 
     questionContainer.classList.remove("hide");
+    timer();
     generateQ();
+}
+
+var count = document.querySelector("#countdown");
+
+let seconds = 90;
+var timer;
+function timer() {
+    count.textContent = seconds;
+    timer = setInterval(function() {
+        seconds--;
+
+        if (seconds === 0) {
+            clearInterval(timer);
+            alert("You ran out of time!");
+        }
+    }, 1000)
 }
 
 function generateQ() {
@@ -109,24 +125,31 @@ function nextQ(question){
     
 }
 
+
 function correct(){
     score++;
     generateQ();
 }
 
 function incorrect(){
+    
     score--;
 }
 
-function checkAnswer(answerPosition) {
+async function checkAnswer(answerPosition) {
     if(questions[questionPosition].answers[answerPosition].correct === true && questions[questionPosition] != null){
         questionPosition++;
-        correct();
+        answerEl.textContent = "Correct!"
+        return await correct();
     } else {
-        incorrect();
+        answerEl.textContent = "Inorrect! Try again."
+        return await incorrect();
     }
 }
 
 function end(){
-    console.log("STOP");
+    startBtn.remove();
+    startup.remove();
+    questionContainer.remove();
+    endScreen.classList.remove("hide");
 }

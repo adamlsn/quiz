@@ -12,7 +12,7 @@
     <body>
         <header>
             <a href="scores.html" id="high-score" class="high-score">View High Scores</a>
-            <h3 id="timer" class="timer">Timer: <span id="countdown">120</span></h3>
+            <h3 id="timer" class="timer">Timer: <span id="countdown"></span></h3>
         </header>
         
         <main id= "container" class="container">
@@ -38,6 +38,20 @@
                     <button class="btn" id="btn3">3. Answer</button>
                     <button class="btn" id="btn4">4. Answer</button>
                 </div>
+                <h2 id="answer">Answer</h2>
+            </div>
+            <div id="end-screen" class="hide">
+                <h2>How'd you do?</h2>
+                <p>Your Total Score is: <span id="score"></span></p>
+                <p>Enter your initals:
+                <form>
+                    <input type="text" name="initals" id="initals" placeholder="Initals Here" />
+                </form>
+                </p>
+    
+                <div>
+                    <button id="submit" class="btn">Submit</button>
+                </div>
             </div>
         </main>
 
@@ -46,6 +60,8 @@
                 <h2 id="question-title"></h2>
             </div>
         </div>
+
+        
 
         <script src="./assets/js/script.js" async defer></script>
     </body>
