@@ -9,6 +9,8 @@ let score = 0;
 let t = 90;
 let counter = 0;
 
+let questionPosition = 0;
+
 const questions = [
     {
         question: "QUESTION ONE",
@@ -64,23 +66,14 @@ function init(){
     startup.classList.add("hide");
 
     questionContainer.classList.remove("hide");
-    nextQ();
+    nextQ(questions);
 }
 
 function nextQ(question){
-    questionEl.innerText = question.question;
-    questions.answer.forEach(answer =>{
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-        button.classList.add("btn");
+    document.querySelector("#question").textContent = question[questionPosition].question
 
-        if(answer.correct){
-            button.dataset.correct = answer.correct
-        } else {
-            button.dataset.correct = answer.false
-        }
-
-        button.addEventListener("click", answerPick);
-        answerBtn.appendChild(button);
-    })
+    document.querySelector("#btn1").textContent = question[questionPosition].answers[0].text;
+    document.querySelector("#btn2").textContent = question[questionPosition].answers[1].text;
+    document.querySelector("#btn3").textContent = question[questionPosition].answers[2].text;
+    document.querySelector("#btn4").textContent = question[questionPosition].answers[3].text;
 }
