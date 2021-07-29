@@ -1,5 +1,8 @@
 const startBtn = document.getElementById("start-btn");
 const questionEl = document.getElementById("questions-container");
+const startup = document.getElementById("startup");
+const questionContainer = document.getElementById("question-container");
+const answerBtn = document.getElementById("answerBtn")
 
 const questions = [
     {
@@ -52,5 +55,26 @@ const questions = [
 startBtn.addEventListener("click", init);
 
 function init(){
-    console.log("BUTTON WORKS")
+    startBtn.classList.add("hide");
+    startup.classList.add("hide");
+
+    nextQ();
+}
+
+function nextQ(question){
+    questionEl.innerText = question.question;
+    questions.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+
+        if(answer.correct){
+            button.dataset.correct = answer.correct
+        } else {
+            button.dataset.correct = answer.false
+        }
+
+        button.addEventListener("clikc", answerPick);
+        answerBtn.appendChild(button);
+    })
 }
