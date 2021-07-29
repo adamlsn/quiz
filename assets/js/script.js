@@ -4,6 +4,11 @@ const startup = document.getElementById("startup");
 const questionContainer = document.getElementById("question-container");
 const answerBtn = document.getElementById("answerBtn")
 
+let score = 0;
+
+let t = 90;
+let counter = 0;
+
 const questions = [
     {
         question: "QUESTION ONE",
@@ -58,6 +63,7 @@ function init(){
     startBtn.classList.add("hide");
     startup.classList.add("hide");
 
+    questionContainer.classList.remove("hide");
     nextQ();
 }
 
@@ -74,7 +80,7 @@ function nextQ(question){
             button.dataset.correct = answer.false
         }
 
-        button.addEventListener("clikc", answerPick);
+        button.addEventListener("click", answerPick);
         answerBtn.appendChild(button);
     })
 }
