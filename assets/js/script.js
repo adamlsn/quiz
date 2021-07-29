@@ -15,10 +15,10 @@ const questions = [
     {
         question: "QUESTION ONE",
         answers: [
-            { text: "ONE", correct: false },
-            { text: "TWO", correct: false },
-            { text: "THREE", correct: true },
-            { text: "FOUR", correct: false }
+            { text: "UNO", correct: false },
+            { text: "DOS", correct: true },
+            { text: "TRES", correct: false },
+            { text: "CUATRO", correct: false }
         ]
     },
     {   
@@ -76,4 +76,34 @@ function nextQ(question){
     document.querySelector("#btn2").textContent = question[questionPosition].answers[1].text;
     document.querySelector("#btn3").textContent = question[questionPosition].answers[2].text;
     document.querySelector("#btn4").textContent = question[questionPosition].answers[3].text;
+
+    document.querySelector(".btn").addEventListener("click", () => {
+        if(question[questionPosition].answers.correct){
+            score++;
+            console.log(score);
+            correct();
+        } else {
+            score --;
+            console.log(score);
+            incorrect();
+        }
+    })
+
+    
+}
+
+function moveUp(){
+    nextQ(questions);
+}
+
+function correct(){
+    questionPosition++;
+    if(questionPosition < 5) moveUp();
+    else console.log("STOP");
+}
+
+function incorrect(){
+    questionPosition++;
+    if(questionPosition < 5) moveUp();
+    else console.log("STOP");
 }
