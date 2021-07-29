@@ -1,29 +1,8 @@
-var isWaiting = false;
-var isRunning = false;
-var seconds = 10;
-var countdownTimer;
-var finalCountdown = false;
+const startBtn = document.getElementById("start-btn");
+const questionEl = document.getElementById("questions-container");
 
-function GameTimer() {
-    // var minutes = Math.round((seconds - 30) / 60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 100) {
-        remainingSeconds = "0" + remainingSeconds;
-    }
-    document.getElementById('#countdown').innerHTML = remainingSeconds;
-    if (seconds == 0) {
-        isRunning = true;
-        seconds += 2;
+startBtn.addEventListener("click", init);
 
-        if (finalCountdown) {
-            clearInterval(countdownTimer); // Clear the interval to stop the loop
-        } else {
-            finalCountdown = true; // This will allow the 2 additional seconds only once.
-        }
-
-    } else {
-        isWaiting = true;
-        seconds--;
-    }
+init = () =>{
+    console.log("BUTTON WORKS")
 }
-countdownTimer = setInterval(GameTimer, 1000); // Pass function reference, don't invoke it.
