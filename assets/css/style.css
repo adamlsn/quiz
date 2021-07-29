@@ -23,7 +23,7 @@ header {
 
 header h3 {
     padding-left: 20px;
-    font-size: 1vw;
+    font-size: 1rem;
     display: inline;
 }
 
@@ -41,12 +41,12 @@ header h3 {
 }
 
 h1 {
-    font-size: 2vw;
+    font-size: 3rem;
     font-weight: bolder;
 }
 
 p {
-    font-size: 1.5vw;
+    font-size: 2rem;
 }
 
 /* BUTTON STYLES */
@@ -55,4 +55,6 @@ p {
     border-radius: 10px;
     border: none;
     background-color: var(--purple);
+    width: 200px;
+    height: 50px;
 }

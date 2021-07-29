@@ -12,18 +12,36 @@
     <body>
         <header>
             <h3 id="high-score" class="high-score">View High Scores</h3>
-            <h3 id="timer" class="timer">Timer: </h3>
+            <h3 id="timer" class="timer">Timer: <span id="countdown">120</span></h3>
         </header>
         
-        <main id= "main-container" class="main-container">
-            <div class="container main">
+        <main id= "container" class="container">
+            <div id="start-container" class="start-container">
                 <h1>Coding Quiz Challenge!</h1>
-                <p>Try to answer the following code-related questions within the time limit. Correct answers are worth 7 points!
-                    Keep in mind that incorrect answers will penalize your score by 2 points and your time by 3 seconds!
+                <p>
+                    Try to answer the following code-related questions within the time limit.
                 </p>
-                <button id="start" class="btn">Start Quiz</button>
+                <p>
+                    Keep in mind that the incorrect answers will penalize your score/time by ten seconds!
+                </p>
+
+                <div>
+                    <button id="start-btn" class="satrt-btn" type="submit">Start Quiz</button>
+                </div>
+            </div>
+
+            <div id="questions-container" class="hide">
+                <div id="question">Question</div>
+                <div class="answer btn" id="btns">
+                    <button class="btn">1. ONE</button>
+                    <button class="btn">2. TWO</button>
+                    <button class="btn">3. THREE</button>
+                    <button class="btn">4. FOUR</button>
+                </div>
             </div>
         </main>
+
+        <d</div>
 
         <script src="./assets/js/script.js" async defer></script>
     </body>
