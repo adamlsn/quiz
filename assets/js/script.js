@@ -8,7 +8,7 @@ let score = 0;
 
 let t = 90;
 let counter = 0;
-
+let answerPosition;
 let questionPosition = 0;
 
 const questions = [
@@ -24,8 +24,8 @@ const questions = [
     {   
         question: "QUESTION TWO",
         answers: [
-            { text: "ONE", correct: false },
-            { text: "TWO", correct: true },
+            { text: "ONE", correct: true },
+            { text: "TWO", correct: false },
             { text: "THREE", correct: false },
             { text: "FOUR", correct: false }
         ]
@@ -34,8 +34,8 @@ const questions = [
         question: "QUESTION THREE",
         answers: [
             { text: "ONE", correct: false },
-            { text: "TWO", correct: true },
-            { text: "THREE", correct: false },
+            { text: "TWO", correct: false },
+            { text: "THREE", correct: true },
             { text: "FOUR", correct: false }
         ]
     },
@@ -43,16 +43,16 @@ const questions = [
         question: "QUESTION FOUR",
         answers: [
             { text: "ONE", correct: false },
-            { text: "TWO", correct: true },
+            { text: "TWO", correct: false },
             { text: "THREE", correct: false },
-            { text: "FOUR", correct: false }
+            { text: "FOUR", correct: true }
         ]
     },
     {   
         question: "QUESTION FIVE",
         answers: [
-            { text: "ONE", correct: false },
-            { text: "TWO", correct: true },
+            { text: "ONE", correct: true },
+            { text: "TWO", correct: false },
             { text: "THREE", correct: false },
             { text: "FOUR", correct: false }
         ]
@@ -66,44 +66,67 @@ function init(){
     startup.classList.add("hide");
 
     questionContainer.classList.remove("hide");
-    nextQ(questions);
+    generateQ();
+}
+
+function generateQ() {
+    if(questions[questionPosition] != null){
+        console.log(questionPosition)
+        nextQ(questions[questionPosition])
+    } else {
+        end();
+    }
 }
 
 function nextQ(question){
-    document.querySelector("#question").textContent = question[questionPosition].question
+    document.querySelector("#question").textContent = question.question
 
-    document.querySelector("#btn1").textContent = question[questionPosition].answers[0].text;
-    document.querySelector("#btn2").textContent = question[questionPosition].answers[1].text;
-    document.querySelector("#btn3").textContent = question[questionPosition].answers[2].text;
-    document.querySelector("#btn4").textContent = question[questionPosition].answers[3].text;
+    document.querySelector("#btn1").textContent = `1: ${question.answers[0].text}`;
+    document.querySelector("#btn2").textContent = `2: ${question.answers[1].text}`
+    document.querySelector("#btn3").textContent = `3: ${question.answers[2].text}`
+    document.querySelector("#btn4").textContent = `4: ${question.answers[3].text}`
 
-    document.querySelector(".btn").addEventListener("click", () => {
-        if(question[questionPosition].answers.correct){
-            score++;
-            console.log(score);
-            correct();
-        } else {
-            score --;
-            console.log(score);
-            incorrect();
-        }
+    document.querySelector(["#btn1"]).addEventListener("click", function(){
+        answerPosition = 0;
+        checkAnswer(answerPosition)
+    })
+
+    document.querySelector(["#btn2"]).addEventListener("click", function(){
+        answerPosition = 1;
+        checkAnswer(answerPosition)
+    })
+
+    document.querySelector(["#btn3"]).addEventListener("click", function(){
+        answerPosition = 2;
+        checkAnswer(answerPosition)
+    })
+
+    document.querySelector(["#btn4"]).addEventListener("click", function(){
+        answerPosition = 3;
+        checkAnswer(answerPosition)
     })
 
     
 }
 
-function moveUp(){
-    nextQ(questions);
-}
-
 function correct(){
-    questionPosition++;
-    if(questionPosition < 5) moveUp();
-    else console.log("STOP");
+    score++;
+    generateQ();
 }
 
 function incorrect(){
-    questionPosition++;
-    if(questionPosition < 5) moveUp();
-    else console.log("STOP");
+    score--;
+}
+
+function checkAnswer(answerPosition) {
+    if(questions[questionPosition].answers[answerPosition].correct === true && questions[questionPosition] != null){
+        questionPosition++;
+        correct();
+    } else {
+        incorrect();
+    }
+}
+
+function end(){
+    console.log("STOP");
 }
