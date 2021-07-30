@@ -125,7 +125,6 @@ function nextQ(question){
     
 }
 
-
 function correct(){
     score++;
     generateQ();
