@@ -14,46 +14,46 @@ const questions = [
     {
         question: "QUESTION ONE",
         answers: [
-            { text: "UNO", correct: false },
-            { text: "DOS", correct: true },
-            { text: "TRES", correct: false },
-            { text: "CUATRO", correct: false }
+            { text: "FALSE", correct: false },
+            { text: "TRUE", correct: true },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false }
         ]
     },
     {   
         question: "QUESTION TWO",
         answers: [
-            { text: "ONE", correct: true },
-            { text: "TWO", correct: false },
-            { text: "THREE", correct: false },
-            { text: "FOUR", correct: false }
+            { text: "TRUE", correct: true },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false }
         ]
     },   
     {   
         question: "QUESTION THREE",
         answers: [
-            { text: "ONE", correct: false },
-            { text: "TWO", correct: false },
-            { text: "THREE", correct: true },
-            { text: "FOUR", correct: false }
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false },
+            { text: "TRUE", correct: true },
+            { text: "FALSE", correct: false }
         ]
     },
     {   
         question: "QUESTION FOUR",
         answers: [
-            { text: "ONE", correct: false },
-            { text: "TWO", correct: false },
-            { text: "THREE", correct: false },
-            { text: "FOUR", correct: true }
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false },
+            { text: "TRUE", correct: true }
         ]
     },
     {   
         question: "QUESTION FIVE",
         answers: [
-            { text: "ONE", correct: true },
-            { text: "TWO", correct: false },
-            { text: "THREE", correct: false },
-            { text: "FOUR", correct: false }
+            { text: "TRUE", correct: true },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false },
+            { text: "FALSE", correct: false }
         ]
     }      
 ]
